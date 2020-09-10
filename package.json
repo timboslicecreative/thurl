@@ -1,0 +1,32 @@
+{
+  "name": "thurl",
+  "version": "0.1.0",
+  "description": "Thumbor URL builder",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timboslicecreative/thurl.git"
+  },
+  "keywords": [
+    "thumbor",
+    "javascript",
+    "node",
+    "url",
+    "builder"
+  ],
+  "author": "Timbo Slice Creative",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timboslicecreative/thurl/issues"
+  },
+  "homepage": "https://github.com/timboslicecreative/thurl#readme",
+  "dependencies": {
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.3"
+  }
+}
