@@ -18,7 +18,7 @@ yarn add thurl
 ## Setup
 Load the package and create an instance with your base thumbor url and security key if using secure urls.
 
-```
+```javascript
 const thurl = new Thurl('<thumbor url>', '<thumbor security key>');
 ```
 
@@ -28,17 +28,17 @@ It is not recommended to use a security key is using this library within the bro
 will be exposed.
 
 ES6
-```
+```javascript
 import Thurl from 'thurl';
 const thurl = new Thurl('http://thumbor.mydomain.com', 'abcdefghijklmnopqrstuvwxyz123');
 ```
 CommonJS
-```
+```javascript
 const Thurl = require('../lib/index.js');
 const thurl = new Thurl('http://thumbor.mydomain.com', 'abcdefghijklmnopqrstuvwxyz123');
 ```
 CommonJS  as a one liner
-```
+```javascript
 const thurl = new (require('../lib/index.js'))('http://thumbor.mydomain.com', 'abcdefghijklmnopqrstuvwxyz123')
 ```
 
@@ -46,12 +46,12 @@ const thurl = new (require('../lib/index.js'))('http://thumbor.mydomain.com', 'a
 You can use thumbor in unsafe / insecure mode by omitting the key when initialising Thurl.
 
 ES6
-```
+```javascript
 const Thurl = import 'thurl';
 const thurl = new Thurl('http://thumbor.mydomain.com');
 ```
 CommonJS
-```
+```javascript
 const Thurl = require('../lib/index.js');
 const thurl = new Thurl('http://thumbor.mydomain.com');
 ```
@@ -78,24 +78,24 @@ e.g. `thurl.build('image.jpg', {property: value})`
 |filter* |String or Array |null | *Read filters section |
 
 Simple Adjustment Examples:
-```
+```javascript
 // Url: 
-imageUrl = thurl.build('image.jpg')
+const imageUrl = thurl.build('image.jpg')
 // imageUrl = 'http://thumbor.mydomain.com/<hmac|unsafe>/image.jpg'
 
 // Resize: 
-thumbnail = thurl.build('image.jpg', {width: 100, height: 100})
+const thumbnail = thurl.build('image.jpg', {width: 100, height: 100})
 // thumbnail = 'http://thumbor.mydomain.com/<hmac|unsafe>/100x100/image.jpg'
 
 // Resize & Crop: 
-thumbnail = thurl.build('image.jpg', {
+const thumbnail = thurl.build('image.jpg', {
     crop: { left: 5, top: 10, right: 15, bottom: 20 },
     width: 100, 
     height: 100
 })
 // thumbnail = 'http://thumbor.mydomain.com/<hmac|unsafe>/5x10:15x20/100x100/image.jpg'
 ```
-See [https://thumbor.readthedocs.io/en/latest/usage.html](https://thumbor.readthedocs.io/en/latest/usage.html) for all options and settings.
+See [https://thumbor.readthedocs.io/en/latest/usage.html](https://thumbor.readthedocs.io/en/latest/usage.html) for all adjustments.
 
 
 ### Filters
@@ -105,18 +105,18 @@ array of properties.
 Example `{blur: '12,25'}` `{blur: [12,25]}` `{brightness: -100}` `{brightness: '-100'}` `{brightness: [-100]}` are all valid. 
 
 Filter Examples: 
-```
+```javascript
 // Blur: 
-imageUrl = thurl.build('image.jpg', {blur: [12,25]})
+const imageUrl = thurl.build('image.jpg', {blur: [12,25]})
 // imageUrl = 'http://thumbor.mydomain.com/<hmac|unsafe>/filters:blur(12,25)/image.jpg'
 
 // Blur & Resize: 
-thumbnail = thurl.build('image.jpg', {width: 100, height: 100, blur: '12,25'})
+const thumbnail = thurl.build('image.jpg', {width: 100, height: 100, blur: '12,25'})
 // thumbnail = 'http://thumbor.mydomain.com/<hmac|unsafe>/100x100/filters:blur(12,25)/image.jpg'
 
 // Resize & Watermark
-imageUrl = thurl.build('image.jpg', {width: 1024, watermark: ['http:/www.abc.com/img.png', -10, -11, 15, 25, 20]})
+const imageUrl = thurl.build('image.jpg', {width: 1024, watermark: ['http:/www.abc.com/img.png', -10, -11, 15, 25, 20]})
 // imageUrl = 'http://thumbor.mydomain.com/<hmac|unsafe>/1024x/filters:watermark(http:/www.abc.com/img.png,-10,-11,15,25,20)/image.jpg'
 ```
-
+See [https://thumbor.readthedocs.io/en/latest/filters.html](https://thumbor.readthedocs.io/en/latest/filters.html) form more information about filters.
 
