@@ -1,6 +1,6 @@
 {
   "name": "thurl",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Thumbor URL builder",
   "main": "lib/index.js",
   "scripts": {
